@@ -18,7 +18,7 @@ export default function bufferToBinaryString(buffer: ArrayBuffer): string {
   let result = "";
   let offset = 0;
   while (offset < buffer.byteLength) {
-    const length = Math.min(buffer.byteLength - offset, 1<<10);
+    const length = Math.min(buffer.byteLength - offset, 4096);
     const view = new Uint8Array(buffer, offset, length);
     const chunk = String.fromCharCode(...view);
     result += chunk;
